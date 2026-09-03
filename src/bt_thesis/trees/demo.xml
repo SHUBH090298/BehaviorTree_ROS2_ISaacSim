@@ -1,0 +1,10 @@
+<root BTCPP_format="4" main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <Sequence name="drive_square_ish">
+      <DriveFor linear="0.3" angular="0.0" duration="2.0"/>
+      <DriveFor linear="0.0" angular="0.6" duration="2.6"/>
+      <DriveFor linear="0.3" angular="0.0" duration="2.0"/>
+      <DriveFor linear="0.0" angular="0.6" duration="2.6"/>
+    </Sequence>
+  </BehaviorTree>
+</root>

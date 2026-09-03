@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4"
+      main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <Sequence>
+      <RetryUntilSuccessful num_attempts="15">
+        <JointStatesOk/>
+      </RetryUntilSuccessful>
+      <MoveToJoints name="to_home"
+                    joints="panda_joint1;panda_joint2;panda_joint4;panda_joint6"
+                    targets="0.0;-0.785;-2.356;1.571"/>
+      <MoveToJoints name="swing_out"
+                    joints="panda_joint1;panda_joint2;panda_joint4;panda_joint6"
+                    targets="0.6;-0.4;-2.0;1.6"/>
+      <MoveToJoints name="back_home"
+                    joints="panda_joint1;panda_joint2;panda_joint4;panda_joint6"
+                    targets="0.0;-0.785;-2.356;1.571"/>
+    </Sequence>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Action ID="JointStatesOk"
+            editable="true"/>
+    <Action ID="MoveToJoints"
+            editable="true">
+      <input_port name="joints"/>
+      <input_port name="targets"/>
+    </Action>
+  </TreeNodesModel>
+
+</root>

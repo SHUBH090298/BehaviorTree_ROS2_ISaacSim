@@ -1,0 +1,33 @@
+<root BTCPP_format="4">
+    <TreeNodesModel>
+        <Condition ID="AgentHealthy">
+            <input_port name="timeout" type="double" default="2.000000">heartbeat staleness limit [s]</input_port>
+            <input_port name="agent" type="std::string">agent name, e.g. perception</input_port>
+        </Condition>
+        <Condition ID="EStopClear"/>
+        <Condition ID="JointStatesOk"/>
+        <Action ID="MoveToJoints">
+            <input_port name="timeout" type="double" default="8.000000">give up after [s]</input_port>
+            <input_port name="tolerance" type="double" default="0.020000">per-joint tolerance [rad]</input_port>
+            <input_port name="targets" type="std::string">semicolon-separated targets [rad]</input_port>
+            <input_port name="joints" type="std::string">semicolon-separated joint names</input_port>
+        </Action>
+        <Condition ID="PartDetected">
+            <input_port name="max_age" type="double" default="1.000000">reject positions older than [s]</input_port>
+        </Condition>
+        <Action ID="RequestSkill">
+            <input_port name="timeout" type="double" default="8.000000">give up after [s]</input_port>
+            <input_port name="skill" type="std::string">skill name to request</input_port>
+        </Action>
+        <Action ID="TrackPointServo">
+            <input_port name="settle_time" type="double" default="1.500000">hold within tolerance for [s] before SUCCESS</input_port>
+            <input_port name="tolerance" type="double" default="0.050000">bearing tolerance [rad]</input_port>
+            <input_port name="posture_targets" type="std::string" default="-0.3;-1.9;1.6">posture values [rad]</input_port>
+            <input_port name="timeout" type="double" default="20.000000">give up after [s]</input_port>
+            <input_port name="posture_joints" type="std::string" default="panda_joint2;panda_joint4;panda_joint6">joints held at a fixed approach posture</input_port>
+        </Action>
+        <Action ID="WaitForPerception">
+            <input_port name="timeout" type="double" default="10.000000">give up after [s]</input_port>
+        </Action>
+    </TreeNodesModel>
+</root>
